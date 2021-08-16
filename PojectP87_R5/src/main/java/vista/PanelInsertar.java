@@ -12,6 +12,7 @@ public class PanelInsertar extends JPanel{
     private JButton botonGuardar, botonLimpiar, botonCancelar;
     private VentanaCRUD ventanaCRUD;
 
+    // Constructor
     public PanelInsertar(VentanaCRUD ventanaCRUD) {
         this.ventanaCRUD = ventanaCRUD;
         
@@ -82,7 +83,7 @@ public class PanelInsertar extends JPanel{
         textFecha.setBounds(500, 240, 190, 25);
         add(textFecha);
 
-        // Botones CRUD Segunda Hilera
+        // Botones CRUD 
         botonGuardar = new JButton("Guardar");
         botonGuardar.setBounds(70, 450, 200, 25); //50, 350, 120, 25
         add(botonGuardar);
@@ -217,7 +218,4 @@ public class PanelInsertar extends JPanel{
         this.ventanaCRUD = ventanaCRUD;
     }
     
-
-    
-
 }

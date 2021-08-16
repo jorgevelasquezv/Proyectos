@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class EventBotonesCRUD implements ActionListener{
+    // Atributos
     private VentanaCRUD ventanaCRUD ;
     private PanelTable tabla;
 
@@ -14,6 +15,7 @@ public class EventBotonesCRUD implements ActionListener{
         this.tabla = tabla;
     }
 
+    // Metodos
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -43,27 +45,26 @@ public class EventBotonesCRUD implements ActionListener{
         }
         
        if (e.getSource() == ventanaCRUD.getBotonMateriales()) {
-        String [] nombres = {"ID Proyecto", "Material"};
-        Object [][] campos;
-        tabla.borrarTabla();
+            String [] nombres = {"ID Proyecto", "Material"};
+            Object [][] campos;
+            tabla.borrarTabla();
 
-        try {
-            // Su código
-            var rqm2 = ventanaCRUD.getControl().consultarRequerimiento2();
+            try {
+                // Su código
+                var rqm2 = ventanaCRUD.getControl().consultarRequerimiento2();
 
-            campos = new Object [rqm2.size()][2];
+                campos = new Object [rqm2.size()][2];
 
-            for (int i = 0; i < rqm2.size(); i++) {
-                campos[i][0] = rqm2.get(i).getId_proyecto();
-                campos[i][1] = rqm2.get(i).getNombre_material();
+                for (int i = 0; i < rqm2.size(); i++) {
+                    campos[i][0] = rqm2.get(i).getId_proyecto();
+                    campos[i][1] = rqm2.get(i).getNombre_material();
+                }
+
+                tabla.cargarTabla(nombres, campos);
+            } catch (Exception e2) {
+                System.out.println("Se ha producido el siguiente error:" + e2.getMessage());
+                e2.printStackTrace();
             }
-
-            tabla.cargarTabla(nombres, campos);
-        } catch (Exception e2) {
-            System.out.println("Se ha producido el siguiente error:" + e2.getMessage());
-            e2.printStackTrace();
-        }
-        
        }
 
        if (e.getSource() == ventanaCRUD.getBotonInsertar()) {

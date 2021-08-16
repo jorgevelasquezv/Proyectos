@@ -25,9 +25,7 @@ public class EventBotonesPanelInsertar implements ActionListener {
         if (e.getSource() == panelInsertar.getBotonCancelar()) {
             panelInsertar.getVentanaCRUD().getControl().mostrarPanelTabla(panelInsertar.getVentanaCRUD());
         }
-        
-        
-        
+          
         if (e.getSource() == panelInsertar.getBotonGuardar()) {
 
             Object [] datos = new Object [9];
@@ -61,8 +59,6 @@ public class EventBotonesPanelInsertar implements ActionListener {
                 JOptionPane.showMessageDialog(null, "No se admiten caracteres ni campos vacios en \ncampo salario y/o campo clasificacion ", "Ingreso De Lideres", JOptionPane.ERROR_MESSAGE);
             }
             
-            
-
         }
     }
 
