@@ -13,12 +13,14 @@ import static java.awt.Font.BOLD;
 
 public class PanelBotones extends JPanel {
     // Atributos
+    private VentanaPPAL ventanaPPAL;
     private GridLayout miGridLayout;
     private JButton [] arrayBotones;
     private String [] textoBotones = new String[] {"7", "8", "9", "C", "4", "5", "6", "+", "1", "2", "3", "-", "0", ".", "/", "*"};
 
     //Constructor
-    public PanelBotones() {
+    public PanelBotones(VentanaPPAL ventanaPPAL) {
+        this.ventanaPPAL = ventanaPPAL;
         miGridLayout = new GridLayout(4, 4, 10, 10);
         setLayout(miGridLayout);
         setBackground(Color.BLACK);
@@ -31,11 +33,33 @@ public class PanelBotones extends JPanel {
             arrayBotones[i].setBackground(Color.DARK_GRAY);
             arrayBotones[i].setBorder(new LineBorder(Color.DARK_GRAY));
             arrayBotones[i].setForeground(Color.WHITE);
-            //arrayBotones[i].addActionListener(this);
+            arrayBotones[i].addActionListener(new EventPanelBotones(arrayBotones, this));
             arrayBotones[i].setActionCommand(textoBotones[i]);
             add(arrayBotones[i]);
         }
-
     }
 
+    public void cargarDisplay(String text) {
+        ventanaPPAL.cargarDisplay(text);
+    }
+
+    public void borrarDisplay() {
+        ventanaPPAL.borrarDisplay();
+    }
+
+    public void suma() {
+        ventanaPPAL.suma();
+    }
+
+    public void resta() {
+        ventanaPPAL.resta();
+    }
+
+    public void division() {
+        ventanaPPAL.division();
+    }
+
+    public void multiplicacion() {
+        ventanaPPAL.multiplicacion();
+    }
 }

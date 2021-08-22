@@ -1,13 +1,13 @@
 package calculadora;
 
-import calculadora.vista.VentanaPPAL;
+import calculadora.controller.Controlador;
 
 public class App 
 {
     public static void main( String[] args )
     {
-        VentanaPPAL ventanaPPAL = new VentanaPPAL();
-        ventanaPPAL.setVisible(true);
+        Controlador control = new Controlador();
+        control.mostrarCalculadora();
 
     }
 }
