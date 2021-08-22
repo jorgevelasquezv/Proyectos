@@ -10,13 +10,13 @@ public class Multiplicacion {
     }
 
     // Metodos
-    public void multiplicar(String valor) {
-        this.valor = this.valor * Double.parseDouble(valor);
+    public void multiplicar(String valor, String valor2) {
+        this.valor = Double.parseDouble(valor) * Double.parseDouble(valor2);
     }
 
     // Metodos Getters and Setters
-    public Double getValor() {
-        return valor;
+    public String getValor() {
+        return valor.toString();
     }
 
     public void setValor(Double valor) {

@@ -31,18 +31,18 @@ public class Controlador {
         return suma.getValor();   
     }
 
-    public Double restar(String valor) {
-        resta.restar(valor);
+    public String restar(String valor, String valor2) {
+        resta.restar(valor, valor2); 
         return resta.getValor();  
     }
 
-    public Double multiplicar(String valor) {
-        multiplicacion.multiplicar(valor);
+    public String multiplicar(String valor, String valor2) {
+        multiplicacion.multiplicar(valor, valor2);
         return multiplicacion.getValor(); 
     }
 
-    public Double dividir(String valor) {
-        division.dividir(valor);
+    public String dividir(String valor, String valor2) {
+        division.dividir(valor, valor2);
         return division.getValor();
     }
 

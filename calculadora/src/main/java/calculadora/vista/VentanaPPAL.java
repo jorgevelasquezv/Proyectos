@@ -73,8 +73,20 @@ public class VentanaPPAL extends JFrame{
     }
 
     public void cargarDisplay(String text) {
-        if (lblDisplay.getText().equals("0") || lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("+") || lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("-") || lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("*") || lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("/")) {
+        if (lblDisplay.getText().equals("0")) {
             lblDisplay.setText(text);    
+        }else if(lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("+") ){
+            lblDisplay.setText(text);
+            acumulador = control.sumar(acumulador, text);
+        }else if(lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("-") ){
+            lblDisplay.setText(text);
+            acumulador = control.restar(acumulador, text);
+        }else if(lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("*") ){
+            lblDisplay.setText(text);
+            acumulador = control.multiplicar(acumulador, text);
+        }else if(lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("/") ){
+            lblDisplay.setText(text);
+            acumulador = control.dividir(acumulador, text);
         }else{
             lblDisplay.setText(lblDisplay.getText() + text);
         }
@@ -87,18 +99,16 @@ public class VentanaPPAL extends JFrame{
 
     public void resultado() {
         if (operacion.equals("+")) {
-            acumulador = control.sumar(acumulador, lblDisplay.getText());
+            lblDisplay.setText(acumulador);
+        } 
+        if (operacion.equals("-")) {
             lblDisplay.setText(acumulador);
         }
-         
-        if (operacion.equals("-")) {
-            
-        }
         if (operacion.equals("*")) {
-            
+            lblDisplay.setText(acumulador);
         }
         if (operacion.equals("/")) {
-            
+            lblDisplay.setText(acumulador);
         }
     }
 

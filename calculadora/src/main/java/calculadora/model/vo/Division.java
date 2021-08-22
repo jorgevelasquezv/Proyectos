@@ -10,13 +10,13 @@ public class Division {
     }
 
     // Metodos
-    public void dividir(String valor) {
-        this.valor = this.valor / Double.parseDouble(valor);
+    public void dividir(String valor, String valor2) {
+        this.valor = Double.parseDouble(valor) / Double.parseDouble(valor2);
     }
 
     // Metodos Getters and Setters
-    public Double getValor() {
-        return valor;
+    public String getValor() {
+        return valor.toString();
     }
 
     public void setValor(Double valor) {
