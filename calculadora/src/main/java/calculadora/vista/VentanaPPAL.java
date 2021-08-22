@@ -11,6 +11,7 @@ import javax.swing.SwingConstants;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.Font.BOLD;
@@ -22,12 +23,15 @@ public class VentanaPPAL extends JFrame{
     private PanelBotones panelBotones; 
     private JButton btnResultado;
     private JLabel lblDisplay;
+    private ArrayList <String> operador;
     private String acumulador;
+    private String auxiliar;
     private String operacion;
 
     //Constructor
     public VentanaPPAL() {
         control = new Controlador();
+        operador = new ArrayList<> ();
         acumulador = "";
 
         setTitle("Calculadora");
@@ -73,20 +77,8 @@ public class VentanaPPAL extends JFrame{
     }
 
     public void cargarDisplay(String text) {
-        if (lblDisplay.getText().equals("0")) {
+        if (lblDisplay.getText().equals("0") || lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("+") || lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("-") || lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("*") || lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("/")) {
             lblDisplay.setText(text);    
-        }else if(lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("+") ){
-            lblDisplay.setText(text);
-            acumulador = control.sumar(acumulador, text);
-        }else if(lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("-") ){
-            lblDisplay.setText(text);
-            acumulador = control.restar(acumulador, text);
-        }else if(lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("*") ){
-            lblDisplay.setText(text);
-            acumulador = control.multiplicar(acumulador, text);
-        }else if(lblDisplay.getText().substring(lblDisplay.getText().length()- 1).equals("/") ){
-            lblDisplay.setText(text);
-            acumulador = control.dividir(acumulador, text);
         }else{
             lblDisplay.setText(lblDisplay.getText() + text);
         }
@@ -98,42 +90,83 @@ public class VentanaPPAL extends JFrame{
     }
 
     public void resultado() {
+        operador.add(lblDisplay.getText());
+        System.out.println(operador);
+        for (String valor : operador) {
+            if (valor.equals("+")) {
+                acumulador = control.sumar(auxiliar);
+                System.out.println(acumulador);
+            }else if(valor.equals("-")){
+
+            }else if(valor.equals("*")){
+
+            }else if(valor.equals("/")){
+
+            }else {
+                auxiliar = valor;
+            }
+        }
         if (operacion.equals("+")) {
-            lblDisplay.setText(acumulador);
-        } 
-        if (operacion.equals("-")) {
-            lblDisplay.setText(acumulador);
+            acumulador = control.sumar(auxiliar);
+        }else if(operacion.equals("-")){
+            acumulador = control.restar(auxiliar);
+        }else if(operacion.equals("*")){
+            acumulador = control.multiplicar(auxiliar);
+        }else if(operacion.equals("/")){
+            acumulador = control.dividir(auxiliar);
         }
-        if (operacion.equals("*")) {
-            lblDisplay.setText(acumulador);
-        }
-        if (operacion.equals("/")) {
-            lblDisplay.setText(acumulador);
-        }
+        
+        System.out.println(operador);
+        operador.clear();
+        lblDisplay.setText(acumulador);
+        acumulador = "";
+        control.borrarSuma();
+        
+        
     }
 
     public void suma() {
-        operacion = "+";
-        acumulador = lblDisplay.getText();
-        cargarDisplay(operacion);
+        if (lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("+")) {
+            //
+        } else {
+            operacion = "+";
+            operador.add(lblDisplay.getText());
+            operador.add(operacion);
+            cargarDisplay(operacion);
+        }
     }
 
     public void resta() {
-        operacion = "-";
-        acumulador = lblDisplay.getText();
-        cargarDisplay(operacion);
+        if (lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("-")) {
+            //
+        } else {
+            operacion = "-";
+            operador.add(lblDisplay.getText());
+            operador.add(operacion);
+            cargarDisplay(operacion);
+        }
     }
 
     public void division() {
-        operacion = "/";
-        acumulador = lblDisplay.getText();
-        cargarDisplay(operacion);
+        if (lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("/")) {
+            //
+        } else {
+            operacion = "/";
+            operador.add(lblDisplay.getText());
+            operador.add(operacion);
+            cargarDisplay(operacion);
+        }
     }
 
     public void multiplicacion() {
-        operacion = "*";
-        acumulador = lblDisplay.getText();
-        cargarDisplay(operacion);
+        if (lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("*")) {
+            //
+        } else {
+            operacion = "*";
+            operador.add(lblDisplay.getText());
+            operador.add(operacion);
+            cargarDisplay(operacion);
+        }
     }
 
 

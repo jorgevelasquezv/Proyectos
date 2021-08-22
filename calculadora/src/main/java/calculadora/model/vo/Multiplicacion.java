@@ -6,12 +6,16 @@ public class Multiplicacion {
 
     // Constructor
     public Multiplicacion() {
-        this.valor = 0.0;
+        this.valor = null;
     }
 
     // Metodos
-    public void multiplicar(String valor, String valor2) {
-        this.valor = Double.parseDouble(valor) * Double.parseDouble(valor2);
+    public void multiplicar(String valor) {
+        if (this.valor == null) {
+            this.valor = Double.parseDouble(valor);
+        }else{
+            this.valor = this.valor * Double.parseDouble(valor);
+        }
     }
 
     // Metodos Getters and Setters

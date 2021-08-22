@@ -26,24 +26,28 @@ public class Controlador {
         ventanaPPAL.setVisible(true);
     }
 
-    public String sumar(String valor, String valor2) {
-        suma.sumar(valor, valor2); 
+    public String sumar(String valor) {
+        suma.sumar(valor); 
         return suma.getValor();   
     }
 
-    public String restar(String valor, String valor2) {
-        resta.restar(valor, valor2); 
+    public String restar(String valor) {
+        resta.restar(valor); 
         return resta.getValor();  
     }
 
-    public String multiplicar(String valor, String valor2) {
-        multiplicacion.multiplicar(valor, valor2);
+    public String multiplicar(String valor) {
+        multiplicacion.multiplicar(valor);
         return multiplicacion.getValor(); 
     }
 
-    public String dividir(String valor, String valor2) {
-        division.dividir(valor, valor2);
+    public String dividir(String valor) {
+        division.dividir(valor);
         return division.getValor();
+    }
+
+    public void borrarSuma() {
+        suma.setValor(0.0);
     }
 
 }

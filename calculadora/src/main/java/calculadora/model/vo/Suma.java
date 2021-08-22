@@ -10,8 +10,8 @@ public class Suma {
     }
 
     // Metodos
-    public void sumar(String valor , String valor2) {
-        this.valor = Double.parseDouble(valor) + Double.parseDouble(valor2);
+    public void sumar(String valor) {
+        this.valor = this.valor + Double.parseDouble(valor);
     }
 
     // Metodos Getters and Setters
