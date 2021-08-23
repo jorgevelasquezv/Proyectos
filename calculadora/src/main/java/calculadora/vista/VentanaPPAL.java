@@ -97,11 +97,14 @@ public class VentanaPPAL extends JFrame{
                 acumulador = control.sumar(auxiliar);
                 System.out.println(acumulador);
             }else if(valor.equals("-")){
-
+                acumulador = control.restar(auxiliar);
+                System.out.println(acumulador);
             }else if(valor.equals("*")){
-
+                acumulador = control.multiplicar(auxiliar);
+                System.out.println(acumulador);
             }else if(valor.equals("/")){
-
+                acumulador = control.dividir(auxiliar);
+                System.out.println(acumulador);
             }else {
                 auxiliar = valor;
             }

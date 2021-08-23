@@ -48,6 +48,9 @@ public class Controlador {
 
     public void borrarSuma() {
         suma.setValor(0.0);
+        resta.clearResta();
+        multiplicacion.clearMultiplicacion();
+        division.clearDivision();
     }
 
 }

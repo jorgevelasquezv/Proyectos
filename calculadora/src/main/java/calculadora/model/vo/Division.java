@@ -3,6 +3,7 @@ package calculadora.model.vo;
 public class Division {
     // Atributos
     private Double valor;
+    private int contador;
 
     // Constructor
     public Division() {
@@ -11,8 +12,9 @@ public class Division {
 
     // Metodos
     public void dividir(String valor) {
-        if (this.valor == null) {
+        if (this.contador == 0) {
             this.valor = Double.parseDouble(valor);
+            this.contador ++;
         }else{
             // Pendiente error de division por zero
             this.valor = this.valor / Double.parseDouble(valor);
@@ -24,8 +26,9 @@ public class Division {
         return valor.toString();
     }
 
-    public void setValor(Double valor) {
-        this.valor = valor;
+    public void clearDivision() {
+        this.valor = 0.0;
+        this.contador = 0;
     }
 
 }
