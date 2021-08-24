@@ -1,24 +1,17 @@
 package calculadora.controller;
 
-import calculadora.model.vo.Division;
-import calculadora.model.vo.Multiplicacion;
-import calculadora.model.vo.Resta;
-import calculadora.model.vo.Suma;
+import java.util.ArrayList;
+
+import calculadora.model.dao.OperacionDAO;
 import calculadora.vista.VentanaPPAL;
 
 public class Controlador {
     //Atributos 
-    private Suma suma;
-    private Resta resta;
-    private Multiplicacion multiplicacion;
-    private Division division;
+    private OperacionDAO operaciones;
 
     //Constructor 
     public Controlador() {
-        suma = new Suma();
-        resta = new Resta();
-        multiplicacion = new Multiplicacion();
-        division = new Division();
+        operaciones = new OperacionDAO();
     }
 
     public void mostrarCalculadora() {
@@ -26,31 +19,7 @@ public class Controlador {
         ventanaPPAL.setVisible(true);
     }
 
-    public String sumar(String valor) {
-        suma.sumar(valor); 
-        return suma.getValor();   
+    public String ejecutarOperaciones(ArrayList <String> listaOperaciones) {
+        return operaciones.ejecutarOperaciones(listaOperaciones);
     }
-
-    public String restar(String valor) {
-        resta.restar(valor); 
-        return resta.getValor();  
-    }
-
-    public String multiplicar(String valor) {
-        multiplicacion.multiplicar(valor);
-        return multiplicacion.getValor(); 
-    }
-
-    public String dividir(String valor) {
-        division.dividir(valor);
-        return division.getValor();
-    }
-
-    public void borrarSuma() {
-        suma.setValor(0.0);
-        resta.clearResta();
-        multiplicacion.clearMultiplicacion();
-        division.clearDivision();
-    }
-
 }

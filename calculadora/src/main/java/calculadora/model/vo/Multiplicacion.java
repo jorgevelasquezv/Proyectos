@@ -3,22 +3,15 @@ package calculadora.model.vo;
 public class Multiplicacion {
     // Atributos
     private Double valor;
-    private int contador;
 
     // Constructor
     public Multiplicacion() {
         this.valor = 0.0;
-        this.contador = 0;
     }
 
     // Metodos
-    public void multiplicar(String valor) {
-        if (this.contador == 0) {
-            this.valor = Double.parseDouble(valor);
-            this.contador ++;
-        }else{
-            this.valor = this.valor * Double.parseDouble(valor);
-        }
+    public String multiplicar(String valor1, String valor2) {
+        return Double.toString(Double.parseDouble(valor1) * Double.parseDouble(valor2));
     }
 
     // Metodos Getters and Setters
@@ -28,7 +21,6 @@ public class Multiplicacion {
 
     public void clearMultiplicacion() {
         this.valor = 0.0;
-        this.contador = 0;
     }
 
 }
