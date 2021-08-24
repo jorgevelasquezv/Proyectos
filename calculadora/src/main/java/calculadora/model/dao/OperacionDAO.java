@@ -24,7 +24,6 @@ public class OperacionDAO {
 
     public String ejecutarOperaciones(ArrayList <String> listaOperaciones){
         String acumulador = "", auxiliar = "", operador = "";
-        System.out.println(listaOperaciones);
 
         for (String valor : listaOperaciones) {
             if (valor.equals("+")) {
@@ -40,7 +39,6 @@ public class OperacionDAO {
             }else if(!auxiliar.equals("")){
                 acumulador = valor;
                 auxiliar = operacion(operador, auxiliar, acumulador);
-                System.out.println(auxiliar);
             }
         }
         acumulador = auxiliar;
