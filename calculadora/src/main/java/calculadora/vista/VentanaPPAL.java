@@ -78,8 +78,7 @@ public class VentanaPPAL extends JFrame{
             lblDisplay.setText(text);    
         }else{
             lblDisplay.setText(lblDisplay.getText() + text);
-        }
-        
+        }   
     }
 
     public void borrarDisplay() {
@@ -92,51 +91,39 @@ public class VentanaPPAL extends JFrame{
         listaOperaciones.clear();  
     }
 
+    public void actualizaListaOperaciones() {
+        listaOperaciones.add(lblDisplay.getText());
+        listaOperaciones.add(operacion);
+        cargarDisplay(operacion);
+    }
+    
     public void suma() {
-        if (lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("+")) {
-            //
-        } else {
+        if (!lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("+")) {
             operacion = "+";
-            listaOperaciones.add(lblDisplay.getText());
-            listaOperaciones.add(operacion);
-            cargarDisplay(operacion);
+            actualizaListaOperaciones();
         }
     }
 
     public void resta() {
-        if (lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("-")) {
-            //
-        } else {
+        if (!lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("-")) {
             operacion = "-";
-            listaOperaciones.add(lblDisplay.getText());
-            listaOperaciones.add(operacion);
-            cargarDisplay(operacion);
+            actualizaListaOperaciones();
         }
     }
 
     public void division() {
-        if (lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("/")) {
-            //
-        } else {
+        if (!lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("/")) {
             operacion = "/";
-            listaOperaciones.add(lblDisplay.getText());
-            listaOperaciones.add(operacion);
-            cargarDisplay(operacion);
+            actualizaListaOperaciones();
         }
     }
 
     public void multiplicacion() {
-        if (lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("*")) {
-            //
-        } else {
+        if (!lblDisplay.getText().substring(lblDisplay.getText().length() - 1).equals("*")) {
             operacion = "*";
-            listaOperaciones.add(lblDisplay.getText());
-            listaOperaciones.add(operacion);
-            cargarDisplay(operacion);
-        }
+            actualizaListaOperaciones();
+        } 
     }
-
-
 
     // Metodos Getters and Setters 
     public Controlador getControl() {
